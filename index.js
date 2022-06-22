@@ -13,16 +13,25 @@ class Timer {
     };
     pause = () => {
         clearInterval(this.interval);
-    }
+    };
     onDurationChange() {
 
     }
     tick = () => {
-        console.log('tick');
+        this.timeRemaining = this.timeRemaining - 1;
+    };
+
+    get timeRemaining() {
+        return parseFloat(this.durationInput.value);
     }
+
+    set timeRemaining(time) {
+        this.durationInput.value = time;
+    }
+
 }
 
-const durationInput = document.querySelector('#input');
+const durationInput = document.querySelector('#duration');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
 
@@ -103,3 +112,51 @@ const timer = new Timer(durationInput, startButton, pauseButton);
 // const startButton = document.querySelector('#start');
 // startButton.addEventListener('click', arrow);
 
+
+
+
+
+// class User {
+ 
+//     constructor(first, last){
+//         this.first = first;
+//         this.last = last;
+//     }
+//     set first(value){
+//         console.log("IN FIRST SETTER!");
+//         this.firstName = value.toUpperCase();
+//     }
+//     set last(value){
+//         console.log("IN LAST SETTER!");
+//         this.lastName = value.toUpperCase();
+//     }
+//     get fullName() {
+//         console.log("IN GETTER!");
+//         return this.firstName+" "+this.lastName;
+//     }
+// };
+
+// let user1 = new User("spongebob", "squarepants");
+// let user2 = new User("patrick", "star");
+
+// console.log(user1.fullName);
+// console.log(user2.fullName);
+
+
+// class Employee {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     get name() {
+//         return this._name;
+// }
+
+//     //no setter method
+// }
+
+// let employee = new Employee("Stephen Edward");
+// console.log(employee.name);
+
+// employee.name = 'Paul Smith';
+
+// console.log(employee.name);
